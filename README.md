@@ -33,6 +33,17 @@
 ### Solución a implementar. <a name='solucion'>
 
 #### Detecta y/o define al menos 8 tablas en la solución propuesta, sin tener en cuenta las relaciones. <a name='detecta'>
+- Evento
+- País
+- Equipo
+- Persona
+   - DJ
+   - Productor
+- Contenido
+   - Mezcla
+   - Canción
+- Categoría
+   
 #### Diagrama Entidad-Relación. <a name='entidad'>
 #### Modelo Relacionar. <a name='modelo'>
 #### Normalización. <a name='normalizacion'>
