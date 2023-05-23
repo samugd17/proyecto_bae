@@ -32,7 +32,7 @@
 
 ### Solución a implementar. <a name='solucion'>
 
-#### Detecta y/o define al menos 8 tablas en la solución propuesta, sin tener en cuenta las relaciones. < name='detecta'>
+#### Detecta y/o define al menos 8 tablas en la solución propuesta, sin tener en cuenta las relaciones. <a name='detecta'>
 #### Diagrama Entidad-Relación. <a name='ER'>
 #### Modelo Relacionar. <a name='MR'>
 #### Normalización. <a name='normalizacion'>
