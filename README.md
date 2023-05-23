@@ -13,8 +13,8 @@
 3. [Arquitectura y tecnologías a utilizar.](#arquitectura)
 4. [Solución a implementar](#solucion)
    - [Detecta y/o define al menos 8 tablas en la solución propuesta, sin tener en cuenta las relaciones.](#detecta)
-   - [Diagrama Entidad-Relación](#ER)
-   - [Modelo Relacional.](#MR)
+   - [Diagrama Entidad-Relación](#entidad)
+   - [Modelo Relacional.](#modelo)
    - [Normalización](#normalizacion)
    - [Programa la inclusión de elementos en la BBDD](#programa)
 ### Descripción del problema. <a name='problema'>
@@ -33,8 +33,8 @@
 ### Solución a implementar. <a name='solucion'>
 
 #### Detecta y/o define al menos 8 tablas en la solución propuesta, sin tener en cuenta las relaciones. <a name='detecta'>
-#### Diagrama Entidad-Relación. <a name='ER'>
-#### Modelo Relacionar. <a name='MR'>
+#### Diagrama Entidad-Relación. <a name='entidad'>
+#### Modelo Relacionar. <a name='modelo'>
 #### Normalización. <a name='normalizacion'>
 #### Programa la inclusión de elementos en la BBDD. <a name='programa'>
 
