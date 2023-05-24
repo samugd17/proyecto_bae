@@ -56,7 +56,7 @@
 
 </div>
    
-#### Modelo Relacionar. <a name='modelo'>
+#### Modelo Relacional. <a name='modelo'>
    
 <div align='center'>
    
