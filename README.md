@@ -43,9 +43,24 @@
    - Mezcla
    - Canción
 - Categoría
-   
+- Equipo
+- Tipo 
+   - Iluminación
+   - Audio
+   - Efectos
 #### Diagrama Entidad-Relación. <a name='entidad'>
+   
+<div align='center'>
+   
+![Diagrama Entidad Relación](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relaci%C3%B3n-P%C3%A1gina-3.drawio.png>)
+
+</div>
+   
 #### Modelo Relacionar. <a name='modelo'>
+   
+<div align='center'>
+![Modelo Relacional](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relaci%C3%B3n-MR.drawio.png>)
+   
 #### Normalización. <a name='normalizacion'>
 #### Programa la inclusión de elementos en la BBDD. <a name='programa'>
 
