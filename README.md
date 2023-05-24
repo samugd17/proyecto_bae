@@ -2,9 +2,9 @@
    
 # proyecto_bae_dj
 
-<div align="center">
-<img src="https://img.kytary.com/eshop_es/velky_v2/na/637069143475800000/8a1f6ebd/64694457/roland-groovebox-mc-707.jpg" width="500px"/>
-</div>
+   <div align="center">
+   <img src="https://img.kytary.com/eshop_es/velky_v2/na/637069143475800000/8a1f6ebd/64694457/roland-groovebox-mc-707.jpg" width="500px"/>
+   </div>
 
    
 # Índice:
@@ -58,20 +58,20 @@
    - Efectos
 #### Diagrama Entidad-Relación. <a name='entidad'>
    
-<div align='center'>
-   
-![Diagrama Entidad Relación](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relaci%C3%B3n-P%C3%A1gina-3.drawio.png>)
+   <div align='center'>
 
-</div>
+   ![Diagrama Entidad Relación](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relaci%C3%B3n-P%C3%A1gina-3.drawio.png>)
+
+   </div>
    
 #### Modelo Relacional. <a name='modelo'>
    
-<div align='center'>
-   
-![Modelo Relacional](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relaci%C3%B3n-MR.drawio.png>)
-   
-</div>
-   
+   <div align='center'>
+
+   ![Modelo Relacional](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relaci%C3%B3n-MR.drawio.png>)
+
+   </div>
+
 #### Normalización. <a name='normalizacion'>
    
   
