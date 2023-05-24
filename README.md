@@ -59,6 +59,7 @@
 #### Modelo Relacionar. <a name='modelo'>
    
 <div align='center'>
+   
 ![Modelo Relacional](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relaci%C3%B3n-MR.drawio.png>)
    
 #### Normalización. <a name='normalizacion'>
