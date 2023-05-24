@@ -16,6 +16,14 @@
    - [Diagrama Entidad-Relación](#entidad)
    - [Modelo Relacional.](#modelo)
    - [Normalización](#normalizacion)
+      1. [Comprobar si se cumple la 1ª Forma Normal.](#1)
+      2. [Normalizar si no se cumple el apartado 2.](#2)
+      3. [Comprobar si se cumple la 2ª Forma Normal.](#3)
+      4. [Normalizar si no se cumple el apartado 4.](#4)
+      5. [Comprobar si se cumple la 3ª Forma Normal.](#5)
+      6. [Normalizar si no se cumple el apartado 5.](#6)
+      7. [Indicar claves de todas las tablas resultantes.](#7)
+      8. [Genera el diagrama E/R resultante.](#8)
    - [Programa la inclusión de elementos en la BBDD](#programa)
 ### Descripción del problema. <a name='problema'>
 
@@ -63,8 +71,25 @@
 ![Modelo Relacional](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relaci%C3%B3n-MR.drawio.png>)
    
 #### Normalización. <a name='normalizacion'>
+   
+  
 #### Programa la inclusión de elementos en la BBDD. <a name='programa'>
-
+##### 1. Comprobar si se cumple la 1ª Forma Normal. <a name='1'>
+No se cumple la primera forma normal ya que tenemos atributos multievaluados en la entidad eventos.
+   
+##### 2. Normalizar si no se cumple el apartado 2. <a name='2'>
+   
+##### 3. Comprobar si se cumple la 2ª Forma Normal. <a name='3'>
+   
+##### 4. Normalizar si no se cumple el apartado 4. <a name='4'>
+   
+##### 5. Comprobar si se cumple la 3ª Forma Normal. <a name='5'>
+   
+##### 6. Normalizar si no se cumple el apartado 5. <a name='6'>
+   
+##### 7. Indicar claves de todas las tablas resultantes. <a name='7'>
+   
+##### 8. Genera el diagrama E/R resultante. <a name='8'>
 
   </div>
 
