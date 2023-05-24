@@ -70,7 +70,7 @@
    
 ![Modelo Relacional](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relaci%C3%B3n-MR.drawio.png>)
    
-   </div>
+</div>
    
 #### Normalización. <a name='normalizacion'>
    
@@ -93,7 +93,6 @@ No se cumple la primera forma normal ya que tenemos atributos multievaluados en 
    
 ##### 8. Genera el diagrama E/R resultante. <a name='8'>
 
-  </div>
 
 
 </div>
