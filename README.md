@@ -60,7 +60,7 @@
    
    <div align='center'>
 
-   ![Diagrama Entidad Relación](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relacion.drawio.png>)
+   ![Diagrama Entidad Relación](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relaci%C3%B3n.drawio.png>)
 
    </div>
    
