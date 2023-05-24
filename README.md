@@ -60,7 +60,7 @@
    
    <div align='center'>
 
-   ![Diagrama Entidad Relación](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relaci%C3%B3n-P%C3%A1gina-3.drawio.png>)
+   ![Diagrama Entidad Relación](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relacion.drawio.png>)
 
    </div>
    
@@ -68,7 +68,7 @@
    
    <div align='center'>
 
-   ![Modelo Relacional](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relaci%C3%B3n-MR.drawio.png>)
+   ![Modelo Relacional](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_relacional.drawio.png>)
 
    </div>
 
