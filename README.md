@@ -55,11 +55,6 @@
    - Mezcla
    - Canción
 - Categoría
-- Equipo
-- Tipo 
-   - Iluminación
-   - Audio
-   - Efectos
 
 <a name='entidad'>
 
