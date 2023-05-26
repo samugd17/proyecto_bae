@@ -82,7 +82,7 @@
    
 <a name='1'>
 
-##### 1. Comprobar si se cumple la 1ª Forma Normal. </a>
+#### 1. Comprobar si se cumple la 1ª Forma Normal. </a>
 Nose cumple la primera forma normal ya que tenemos atributos multievaluados en la entidad eventos. Por tanto realizamos los siguientes cambios:
 
 <div align="center">
@@ -93,17 +93,17 @@ Nose cumple la primera forma normal ya que tenemos atributos multievaluados en l
 
 <a name='3'>
 
-#### 3. Comprobar si se cumple la 2ª Forma Normal. </a>
+#### 2. Comprobar si se cumple la 2ª Forma Normal. </a>
 La segunda forma normal se cumple ya que una relación está en segunda forma normal si y sólo si está en primera forma normal y todos los atributos que NO forman parte de la clave principal tienen dependencia funcional completa de ella, lo cual se cumple en nuestro diagrama.
    
 <a name='5'> 
 
-#### 5. Comprobar si se cumple la 3ª Forma Normal. </a>
+#### 3. Comprobar si se cumple la 3ª Forma Normal. </a>
 En cuanto a la tercera forma normal, también se cumple ya que no existe transitividad entre los atributos de nuestras entidades.
 
 <a name='8'>  
 
-#### 8. Genera el diagrama E/R resultante. </a>
+#### 4. Genera el diagrama E/R resultante. </a>
 Una vez realizado los cambios y comprobadas que todas las formas normales se cumplen, actualizamos los diagramas ER y MR.
 
 __DIAGRAMA ER:__
