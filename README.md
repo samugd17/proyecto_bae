@@ -56,11 +56,11 @@
    - Iluminación
    - Audio
    - Efectos
-#### Diagrama Entidad-Relación. <a name='entidad'>
+#### Diagrama Entidad-Relación. <a name='entidad'/>
    
    <div align='center'>
 
-   ![Diagrama Entidad Relación](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_entidad_relaci%C3%B3n.drawio.png>)
+   ![Diagrama Entidad Relación](</img/modelo_entidad_relaci%C3%B3n.drawio.png>)
 
    </div>
    
@@ -68,31 +68,32 @@
    
    <div align='center'>
 
-   ![Modelo Relacional](<https://github.com/samugd17/proyecto_bae/blob/main/img/modelo_relacional.drawio.png>)
+   ![Modelo Relacional](</img/modelo_relacional.drawio.png>)
 
    </div>
 
 #### Normalización. <a name='normalizacion'>
    
-  
-#### Programa la inclusión de elementos en la BBDD. <a name='programa'>
+
 ##### 1. Comprobar si se cumple la 1ª Forma Normal. <a name='1'>
 No se cumple la primera forma normal ya que tenemos atributos multievaluados en la entidad eventos.
    
 ##### 2. Normalizar si no se cumple el apartado 2. <a name='2'>
-   
+
+<div align="center">
+
+![Normalización](</img/Normalización.drawio.png>)
+
+</div>
+
 ##### 3. Comprobar si se cumple la 2ª Forma Normal. <a name='3'>
-   
-##### 4. Normalizar si no se cumple el apartado 4. <a name='4'>
+La segunda forma normal se cumple ya que una relación está en segunda forma normal si y sólo si está en primera forma normal y todos los atributos que NO forman parte de la clave principal tienen dependencia funcional completa de ella, lo cual se cumple en nuestro diagrama.
    
 ##### 5. Comprobar si se cumple la 3ª Forma Normal. <a name='5'>
-   
-##### 6. Normalizar si no se cumple el apartado 5. <a name='6'>
-   
-##### 7. Indicar claves de todas las tablas resultantes. <a name='7'>
+En cuanto a la tercera forma normal, también se cumple ya que no existe transitividad entre los atributos de nuestras entidades.
    
 ##### 8. Genera el diagrama E/R resultante. <a name='8'>
 
-
+#### Programa la inclusión de elementos en la BBDD. <a name='programa'>
 
 </div>
