@@ -782,6 +782,63 @@ mysql> select * from fecha_pais_eventos;
 +---------------+--------------+----------+
 10 rows in set (0,00 sec)
 ```
+
+4. Triggers adicionales
+__TRIGGER: HISTÓRICO_EVENTOS__
+```sql
+create table evento_historico (
+   nombre VARCHAR(20) PRIMARY KEY NOT NULL,
+   aforo INT
+);
+
+DELIMITER //
+CREATE TRIGGER trigger_historico_evento 
+AFTER INSERT ON evento
+FOR EACH ROW
+BEGIN 
+   INSERT INTO evento_historico(nombre, aforo)
+   VALUES (NEW.nombre, NEW.aforo);
+END//
+```
+
+__TRIGGER: HISTÓRICO_PERSONA__
+```sql
+create table persona_historico (
+   id INT PRIMARY KEY NOT NULL,
+   nombre VARCHAR(20),
+   apellido VARCHAR(20),
+   genero ENUM ("H", "M"),
+   edad INT
+);
+
+DELIMITER //
+CREATE TRIGGER trigger_historico_persona 
+AFTER INSERT ON persona
+FOR EACH ROW
+BEGIN 
+   INSERT INTO persona_historico(id, nombre, apellido, genero, edad)
+   VALUES (NEW.id, NEW.nombre, NEW.apellido, NEW.genero, NEW.edad);
+END//
+```
+
+__TRIGGER: HISTÓRICO_CONTENIDO__
+```sql
+CREATE TABLE contenido_historico (
+   id INT PRIMARY KEY NOT NULL,
+   nombre VARCHAR(20),
+   duracion INT,
+   genero VARCHAR(20)
+);
+
+DELIMITER //
+CREATE TRIGGER trigger_historico_contenido 
+AFTER INSERT ON contenido
+FOR EACH ROW
+BEGIN 
+   INSERT INTO contenido_historico(id, nombre, duracion, genero)
+   VALUES (NEW.id, NEW.nombre, NEW.duracion, NEW.genero);
+END//
+```
 </div>
 
 
