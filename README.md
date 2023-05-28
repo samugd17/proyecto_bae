@@ -147,7 +147,7 @@ create table fecha (
 );
 
 create table evento (
-   nombre VARCHAR(9) PRIMARY KEY NOT NULL,
+   nombre VARCHAR(20) PRIMARY KEY NOT NULL,
    aforo INT DEFAULT 0
 );
 
@@ -182,7 +182,7 @@ create table productor (
 );
 
 create table evento_dj (
-   id_evento VARCHAR(9),
+   id_evento VARCHAR(20),
    id_dj INT,
    FOREIGN KEY (id_evento) REFERENCES evento(nombre),
    FOREIGN KEY (id_dj) REFERENCES dj(id),
@@ -550,6 +550,93 @@ mysql> select * from mezcla;
 10 rows in set (0,00 sec)
 
 ```
+
+__TABLA EVENTO:__
+
+```sql
+DELIMITER //
+DROP PROCEDURE IF EXISTS insert_evento//
+CREATE PROCEDURE insert_evento(IN num_inserts INT)
+BEGIN
+   DECLARE i INT DEFAULT 0;
+   DECLARE nombre VARCHAR(20);
+   DECLARE aforo INT;
+
+   WHILE i < num_inserts DO
+      SET nombre = CONCAT("nombre", i);
+      SET aforo = FLOOR(RAND() * 20000);
+
+      INSERT INTO evento (nombre, aforo) VALUES (nombre, aforo);
+      SET i = i + 1;
+   END WHILE;
+END//
+
+DELIMITER ;
+CALL insert_evento(10);
+
+- - - Output - - -
+mysql> select * from evento;
++---------+-------+
+| nombre  | aforo |
++---------+-------+
+| nombre0 | 19160 |
+| nombre1 | 14553 |
+| nombre2 | 15286 |
+| nombre3 | 12771 |
+| nombre4 | 17997 |
+| nombre5 | 11672 |
+| nombre6 |  4371 |
+| nombre7 |  6837 |
+| nombre8 |  1076 |
+| nombre9 |  4867 |
++---------+-------+
+10 rows in set (0,00 sec)
+```
+__TABLA EVENTO_DJ:__
+
+```sql
+DELIMITER //
+DROP PROCEDURE IF EXISTS insert_evento_dj//
+CREATE PROCEDURE insert_evento_dj(IN num_inserts INT)
+BEGIN
+   DECLARE i INT DEFAULT 0;
+   DECLARE evento_nombre VARCHAR(9);
+   DECLARE dj_id INT;
+
+   WHILE i < num_inserts DO
+      SELECT nombre INTO evento_nombre FROM evento
+      WHERE nombre NOT IN (SELECT id_evento FROM evento_dj) ORDER BY RAND() LIMIT 1;
+
+      SELECT id INTO dj_id FROM dj
+      WHERE id NOT IN (SELECT id_dj FROM evento_dj) ORDER BY RAND() LIMIT 1;
+
+      INSERT INTO evento_dj (id_evento, id_dj) VALUES (evento_nombre, dj_id);
+
+      SET i = i + 1;
+   END WHILE;
+END //
+
+DELIMITER ;
+CALL insert_evento_dj(10);
+
+- - - Output - - -
+mysql> select * from evento_dj;
++-----------+-------+
+| id_evento | id_dj |
++-----------+-------+
+| nombre7   |     1 |
+| nombre3   |     2 |
+| nombre4   |     3 |
+| nombre0   |     4 |
+| nombre2   |     5 |
+| nombre9   |     6 |
+| nombre8   |     7 |
+| nombre1   |     8 |
+| nombre5   |     9 |
+| nombre6   |    10 |
++-----------+-------+
+10 rows in set (0,00 sec)
+
 </div>
 
 
