@@ -798,7 +798,7 @@ BEGIN
 END//
 DELIMITER ;
 ```
-Este procediniento se acticará cada vez que se inserten datos en la tabla *fecha_pais_eventos* y actualizará automáticamente el campo *aforo* en la tabla *evento*. Este trigger incrementa el valor de dicho campo para el evento correspondiente al nuevo registro actualizado.
+Este trigger se activará cada vez que se inserten datos en la tabla *fecha_pais_eventos* y actualizará automáticamente el campo *aforo* en la tabla *evento*. Este trigger incrementa el valor de dicho campo para el evento correspondiente al nuevo registro actualizado.
 
 
 ```sql
