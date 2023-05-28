@@ -888,10 +888,28 @@ join fecha on fecha.id = fecha_pais_eventos.id_fecha;
 2. Esta vista muestra los detalles de las mezclas realizadas por los DJs incluyendo el nombre de la mezcla, el nombre del Dj, el nombre de la canción y la duración de la mezcla.
 
 ```sql
-CREATE VIEW view_mezclas AS mezcla.nombre_categoria, contenido.nombre, contenido.duración, dj.nombre FROM mezcla join contenido on contenido.id = mezcla.id_contenido JOIN dj on dj.id = mezcla.id_dj;
+CREATE VIEW view_mezclas AS SELECT mezcla.nombre_categoria, contenido.nombre, contenido.duracion, CONCAT(persona.nombre, ' ',persona.apellido) as nombre_completo FROM mezcla join contenido on contenido.id = mezcla.id_contenido JOIN persona on persona.id = mezcla.id_dj;
+
+- - - Output - - -
+mysql> select * from view_mezclas;
++------------------+----------+----------+---------------------+
+| nombre_categoria | nombre   | duracion | nombre_completo     |
++------------------+----------+----------+---------------------+
+| Mala             | nombre26 |      126 | nombre50 apellido52 |
+| Buena            | nombre19 |       19 | nombre91 apellido97 |
+| Buena            | nombre37 |      142 | nombre76 apellido28 |
+| Mala             | nombre37 |      169 | nombre76 apellido28 |
+| Buena            | nombre66 |       30 | nombre99 apellido87 |
+| Mala             | nombre75 |       11 | nombre52 apellido28 |
+| Media            | nombre25 |       74 | nombre17 apellido72 |
+| Mala             | nombre14 |      149 | nombre99 apellido87 |
+| Buena            | nombre46 |      180 | nombre91 apellido97 |
+| Buena            | nombre4  |       66 | nombre50 apellido52 |
++------------------+----------+----------+---------------------+
+10 rows in set (0,00 sec)
 ```
 Por último, creamos 3 indices.
-1. Este índice acer¡lera las consultas que involucren la columna *nombre* de la tabla **eventos**.
+1. Este índice acelera las consultas que involucren la columna *nombre* de la tabla **eventos**.
 
 ```sql
 CREATE INDEX idx_evento_nombre ON evento(nombre);
@@ -899,12 +917,13 @@ CREATE INDEX idx_evento_nombre ON evento(nombre);
 2. Este índice mejorará el rendimiento de las consultas que utilicen la columna *id_fecha* de la tabla **fecha_pais_eventos**.
 
 ```sql 
-CREATE INDEX idx_fecha_epais_eventos ON fecha_pais_eventos(id_fecha);
+CREATE INDEX idx_fecha_pais_eventos ON fecha_pais_eventos(id_fecha);
 ```
 3. Este índice acelera las consultas que involucren la columna de *id_contenido* y *id_dj* de la tabla **mezcla**.
 
 ```sql
 CREATE INDEX idx_mezcla_id_contenido_id_dj ON mezcla(id_contenido, id_dj);
+```
 
 </div>
 
