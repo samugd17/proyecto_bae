@@ -840,6 +840,74 @@ BEGIN
    VALUES (NEW.id, NEW.nombre, NEW.duracion, NEW.genero);
 END//
 ```
+
+A partir de los de aquí hemos creado triggers más para la utomatización de las tablas.
+
+```sql
+DELIMITER //
+DROP TRIGGER IF EXISTS actualiza_aforo//
+CREATE TRIGGER actualiza_aforo
+AFTER INSERT ON fecha_pais_eventos
+FOR EACH ROW
+BEGIN
+    UPDATE evento
+    SET aforo = aforo + 1
+    WHERE nombre = NEW.nombre_evento;
+END//
+DELIMITER ;
+```
+Este trigger se activará cada vez que se inserten datos en la tabla *fecha_pais_eventos* y actualizará automáticamente el campo *aforo* en la tabla *evento*. Este trigger incrementa el valor de dicho campo para el evento correspondiente al nuevo registro actualizado.
+
+
+```sql
+DELIMITER //
+DROP TRIGGER IF EXISTS mostrar_mensaje//
+CREATE TRIGGER mostrar_mensaje
+AFTER INSERT ON persona
+FOR EACH ROW
+BEGIN
+    DECLARE mensaje VARCHAR(100);
+    SET mensaje = CONCAT('Se ha insertado una nueva persona con ID: ', NEW.id);
+    SELECT mensaje;
+END //
+DELIMITER ;
+
+```
+Este otro trigger se activará después de cada inserción una nueva fila en la tabla persona. Una vez que se inserta en dicha tabla, el trigger mostrará un mensaje que concatena el mensaje en custión con el ID de la persona recién insertada.
+
+Ahora vamos a reslizar 2 vistas para nuestra base de datos.
+
+1. Esta vista mostrará los detalles de los eventos incluyendo en nombre de dicho evento, la capital del país donde se lleva a cabo y la fecha del evento.
+
+```sql
+CREATE VIEW view_evento as SELECT evento_nombre, pais_capital, fecha_dia
+from evento JOIN fecha_pais_eventos on evento.nombre = fecha_pais_eventos.nombre_evento
+JOIN pais on pais.capital = fecha_pais_eventos.capital_pais
+join fecha on fecha.id = fecha_pais_eventos.id_fecha;
+```
+2. Esta vista muestra los detalles de las mezclas realizadas por los DJs incluyendo el nombre de la mezcla, el nombre del Dj, el nombre de la canción y la duración de la mezcla.
+
+```sql
+CREATE VIEW view_mezclas AS mezcla.nombre_categoria, contenido.nombre, contenido.duración, dj.nombre FROM mezcla join contenido on contenido.id = mezcla.id_contenido JOIN dj on dj.id = mezcla.id_dj;
+```
+Por último, creamos 3 indices.
+1. Este índice acer¡lera las consultas que involucren la columna *nombre* de la tabla **eventos**.
+
+```sql
+CREATE INDEX idx_evento_nombre ON evento(nombre);
+```
+2. Este índice mejorará el rendimiento de las consultas que utilicen la columna *id_fecha* de la tabla **fecha_pais_eventos**.
+
+```sql 
+CREATE INDEX idx_fecha_epais_eventos ON fecha_pais_eventos(id_fecha);
+```
+3. Este índice acelera las consultas que involucren la columna de *id_contenido* y *id_dj* de la tabla **mezcla**.
+
+```sql
+CREATE INDEX idx_mezcla_id_contenido_id_dj ON mezcla(id_contenido, id_dj);
+
 </div>
+
+
 
 
