@@ -600,7 +600,7 @@ DROP PROCEDURE IF EXISTS insert_evento_dj//
 CREATE PROCEDURE insert_evento_dj(IN num_inserts INT)
 BEGIN
    DECLARE i INT DEFAULT 0;
-   DECLARE evento_nombre VARCHAR(9);
+   DECLARE evento_nombre VARCHAR(20);
    DECLARE dj_id INT;
 
    WHILE i < num_inserts DO
@@ -636,7 +636,152 @@ mysql> select * from evento_dj;
 | nombre6   |    10 |
 +-----------+-------+
 10 rows in set (0,00 sec)
+```
 
+__TABLA FECHA:__
+```sql
+DELIMITER //
+DROP PROCEDURE IF EXISTS insert_fecha //
+CREATE PROCEDURE insert_fecha(IN num_inserts INT)
+BEGIN
+   DECLARE i INT DEFAULT 0;
+   DECLARE dia INT;
+   DECLARE mes INT;
+   DECLARE año INT;
+
+   WHILE i < num_inserts DO
+      SET dia = FLOOR(RAND() * (31) + 1);
+      SET mes = FLOOR(RAND() * (12) + 1);
+      SET año = FLOOR(RAND() * (8) + 2023); -- Esto devuelve un valor entre 2023 y 2030, ambos incluidos.
+
+      INSERT INTO fecha (dia, mes, año) VALUES (dia, mes, año);
+      SET i = i + 1;
+   END WHILE;
+END //
+
+DELIMITER ;
+CALL insert_fecha(10);
+
+- - - Output - - -
+mysql> select * from fecha;
++----+------+------+------+
+| id | dia  | mes  | año  |
++----+------+------+------+
+|  1 |   18 |   11 | 2023 |
+|  2 |    5 |   10 | 2029 |
+|  3 |   13 |    9 | 2027 |
+|  4 |    5 |    2 | 2024 |
+|  5 |   14 |   10 | 2028 |
+|  6 |    5 |    9 | 2024 |
+|  7 |   27 |   10 | 2026 |
+|  8 |   25 |    9 | 2025 |
+|  9 |    4 |   10 | 2030 |
+| 10 |    3 |    9 | 2026 |
++----+------+------+------+
+```
+
+En esta tabla, crearemos un trigger teniendo en cuenta los días de cada mes. Ya que en febrero por ejemplo, sólo disponemos de 28 días como máximo. Si bien no tendremos en cuenta si se trata de año bisiesto o no para la ejecución de esta prueba.
+
+```sql
+DELIMITER //
+DROP TRIGGER IF EXISTS check_month//
+CREATE TRIGGER check_month
+BEFORE INSERT ON fecha
+FOR EACH ROW
+BEGIN
+   IF NEW.mes = 2 THEN
+      SET NEW.dia = FLOOR(RAND() * 28);
+   END IF;
+END//
+```
+__TABLA PAIS:__
+```sql
+DELIMITER //
+DROP PROCEDURE IF EXISTS insert_pais //
+CREATE PROCEDURE insert_pais(IN num_inserts INT)
+BEGIN
+   DECLARE i INT DEFAULT 0;
+   DECLARE capital VARCHAR(20);
+   DECLARE nombre VARCHAR(20);
+
+   WHILE i < num_inserts DO
+      SET capital = CONCAT("capital", i);
+      SET nombre = CONCAT("nombre", i);
+
+      INSERT INTO pais (capital, nombre) VALUES (capital, nombre);
+      SET i = i + 1;
+   END WHILE;
+END //
+
+DELIMITER ;
+CALL insert_pais(10);
+
+- - - Output - - -
+mysql> select * from pais;
++----------+---------+
+| capital  | nombre  |
++----------+---------+
+| capital0 | nombre0 |
+| capital1 | nombre1 |
+| capital2 | nombre2 |
+| capital3 | nombre3 |
+| capital4 | nombre4 |
+| capital5 | nombre5 |
+| capital6 | nombre6 |
+| capital7 | nombre7 |
+| capital8 | nombre8 |
+| capital9 | nombre9 |
++----------+---------+
+10 rows in set (0,00 sec)
+```
+__TABLA FECHA_PAIS_EVENTOS:__
+```sql
+DELIMITER //
+DROP PROCEDURE IF EXISTS insert_fecha_pais_eventos//
+CREATE PROCEDURE insert_fecha_pais_eventos(IN num_inserts INT)
+BEGIN
+   DECLARE i INT DEFAULT 0;
+   DECLARE nombre_evento VARCHAR(20);
+   DECLARE capital_pais VARCHAR(20);
+   DECLARE id_fecha INT;
+
+   WHILE i < num_inserts DO
+      SELECT nombre INTO nombre_evento FROM evento
+      WHERE nombre NOT IN (SELECT nombre_evento FROM fecha_pais_eventos) ORDER BY RAND() LIMIT 1;
+
+      SELECT capital INTO capital_pais FROM pais
+      WHERE capital NOT IN (SELECT capital_pais FROM fecha_pais_eventos) ORDER BY RAND() LIMIT 1;
+
+      SELECT id INTO id_fecha FROM fecha
+      WHERE id NOT IN (SELECT id_fecha FROM fecha_pais_eventos) ORDER BY RAND() LIMIT 1;
+
+      INSERT INTO fecha_pais_eventos (nombre_evento, capital_pais, id_fecha) VALUES (nombre_evento, capital_pais, id_fecha);
+
+      SET i = i + 1;
+   END WHILE;
+END //
+
+DELIMITER ;
+CALL insert_fecha_pais_eventos(10);
+
+- - - Output - - -
+mysql> select * from fecha_pais_eventos;
++---------------+--------------+----------+
+| nombre_evento | capital_pais | id_fecha |
++---------------+--------------+----------+
+| nombre5       | capital7     |       96 |
+| nombre0       | capital2     |       97 |
+| nombre2       | capital0     |       97 |
+| nombre1       | capital7     |      103 |
+| nombre8       | capital3     |      103 |
+| nombre7       | capital3     |      104 |
+| nombre9       | capital0     |      104 |
+| nombre1       | capital6     |      108 |
+| nombre5       | capital1     |      108 |
+| nombre0       | capital4     |      109 |
++---------------+--------------+----------+
+10 rows in set (0,00 sec)
+```
 </div>
 
 
