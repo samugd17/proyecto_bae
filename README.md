@@ -784,6 +784,7 @@ mysql> select * from fecha_pais_eventos;
 ```
 
 4. Triggers adicionales
+
 __TRIGGER: HISTÓRICO_EVENTOS__
 ```sql
 create table evento_historico (
