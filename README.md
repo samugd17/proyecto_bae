@@ -62,7 +62,7 @@
    
    <div align='center'>
 
-   ![Diagrama Entidad-Relación](</img/modelo_entidad_relaci%C3%B3n.drawio.png>)
+   ![Diagrama Entidad-Relación](</img/modelo_ER.drawio.png>)
 
    </div>
 
@@ -72,7 +72,7 @@
    
    <div align='center'>
 
-   ![Modelo Relacional](</img/modelo_relacional.drawio.png>)
+   ![Modelo Relacional](</img/modelo_MR.drawio.png>)
 
    </div>
 
